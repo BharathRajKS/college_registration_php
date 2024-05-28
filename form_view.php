@@ -28,7 +28,7 @@
       </div>
       <div class="mb-4">
         <label for="phone" class="block text-gray-700 font-bold mb-2">Password</label>
-        <input type="password" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="+91">
+        <input type="password" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
       </div>
       <div class="mb-4">
         <label for="course" class="block text-gray-700 font-bold mb-2">Select Course</label>
@@ -45,20 +45,20 @@
       </div>
       <div class="flex items-center justify-between">
         <button type="submit" name="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="btn">
-          Register
+          <a href="login_view.php">Register</a>
         </button>
        
       </div>
     </form>
   </div>
 <script>
-  let btn=document.getElementById('btn');
-  btn.addEventListener('click',function(e){
-    e.preventDefault();
-    alert('Form Submitted');
-    a
+  // let btn=document.getElementById('btn');
+  // btn.addEventListener('click',function(e){
+  //   e.preventDefault();
+  //   alert('Form Submitted');
+    
     <?php  require './controller/form_controll.php'; ?>
-  });
+  // });
 </script>
 </body>
 </html>

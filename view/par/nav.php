@@ -25,7 +25,7 @@
     margin: 0 auto;
     padding: 0 1rem;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
 }
 
@@ -44,7 +44,15 @@
     border-radius: 0.25rem;
     text-decoration: none;
 }
-    }
+    
+.admin{
+  background-color: #002bff;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+}
 
     .login-btn:hover {
       background-color: #38a169;
@@ -59,7 +67,7 @@
         <a href="index.php" class="logo">Hogwarts University</a>
       </div>
       <div class="login-btn">
-        <!-- <a href="login.php" class="login-btn">Login</a> -->
+        <a href="controller/admin.controll.php" class="admin">list</a></div>
         <?php 
             
             session_start();
@@ -70,7 +78,7 @@
                 echo "<a href='login_view.php' class='login-btn'>Login</a>";
             }
             ?>
-      </div>
+      
     </div>
   </nav>
 
