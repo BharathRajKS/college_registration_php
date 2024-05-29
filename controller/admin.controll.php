@@ -1,8 +1,9 @@
 <?php
-// $config = require "./config.php";
-require "../module/DB.php";
 
+// Ensure the correct path to DB.php is provided
+require "module/DB.php";  // Adjust the path if needed
 
+// Rest of the code remains the same
 $database = new Database($config);
 $dataConnection = $database->conn();
 
@@ -11,7 +12,7 @@ $result = $dataConnection->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<table>"; // Start a table
-    echo "<tr><th>ID</th><th>Name</th><th>DOB</th><th>Email</th><th>Courses</th><th>Mobile</th><th>Modifications</th></tr>"; // Table header row
+    echo "<tr><th>ID</th><th>Name</th><th>Email</th><th>Courses</th><th>Comments</th><th>Modifications</th></tr>"; // Table header row
 
     // Output data of each row
     while($row = $result->fetch_assoc()) {
@@ -28,10 +29,9 @@ if ($result->num_rows > 0) {
         echo "</tr>";
     }
 
-    echo "</table><br><br>"; // End the table
+    echo "</table><br><br>"; 
 } else {
     echo "0 results";
 }
 
-$conn->close();
-?>
+$dataConnection->close();

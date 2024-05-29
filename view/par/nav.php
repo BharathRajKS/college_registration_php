@@ -37,7 +37,7 @@
     }
 
     .login-btn {
-        background-color: #002bff;
+        /* background-color: #002bff; */
     color: #ffffff;
     font-weight: bold;
     padding: 0.5rem 1rem;
@@ -45,17 +45,19 @@
     text-decoration: none;
 }
     
-.admin{
-  background-color: #002bff;
-    color: #ffffff;
+
+
+    .login-btn:hover {
+      /* background-color: #38a169; */
+    }
+
+    .list_id {
+       display: none;
+       color: #ffffff;
     font-weight: bold;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     text-decoration: none;
-}
-
-    .login-btn:hover {
-      background-color: #38a169;
     }
   </style>
 </head>
@@ -67,7 +69,7 @@
         <a href="index.php" class="logo">Hogwarts University</a>
       </div>
       <div class="login-btn">
-        <a href="controller/admin.controll.php" class="admin">list</a></div>
+        <a href="./admin.view.php" class="list_id" >list</a></div>
         <?php 
             
             session_start();

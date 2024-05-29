@@ -125,13 +125,15 @@ body {
     <div class="form-container">
       <h2>Login to your account</h2>
       <form method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" required>
-        </div>
+        
         <div class="form-group">
           <label for="email">Email_id</label>
           <input id="email" name="email" type="email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">password</label>
+          <input id="password" name="password" type="password" required>
         </div>
         <div class="form-group">
           <a href="home_page.php">

@@ -1,46 +1,47 @@
 <?php 
-
 session_start();
-
 
 require "./module/DB.php";
 
 error_reporting(E_ALL);
-ini_set("display_errors",1);
+ini_set("display_errors", 1);
 
+$database = new Database($config);
+$dataConnection = $database->conn();
 
-if(isset($_POST['submit'])){
-// echo "Raman";
-    $name=$_POST['name'];
-    $email=$_POST['email'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $password = $_POST['password'];
+    $email = $_POST['email'];
 
+    $password = md5($password); 
+    $adminId = "bharathraj@gmail.com";
 
- if($name!="" && $email!=""){
-   $sql="SELECT * from form where Username='$name' and Email='$email'";
-   
+    if ($email == $adminId) {
+        $adminQuery = "SELECT * FROM form WHERE Email = '$adminId' AND password = '$password'";
+        $resultAdmin = $dataConnection->query($adminQuery);
 
-   $result=mysqli_query($dataConnection,$sql);
-   if($result->num_rows > 0){
-    $_SESSION['name'] = $name; 
-    
-    // echo('insde');
-    header("Location:home_page.php");
+        if ($resultAdmin && $resultAdmin->num_rows > 0) {
+            $_SESSION['name'] = $email;
+            header("Location: list.php?list_id=true");
+            exit();
+        }
+    }
 
-    echo"sucessfully";
+ 
+        $sql = "SELECT * FROM form WHERE password='$password' AND Email='$email'";
+        $result = $dataConnection->query($sql);
 
- }else{
-     echo "<p>Invalid username or password</p>";
- }
-
- }
-
-   // header("Location:home.php");
-
-
+        if ($result->num_rows > 0) {
+          $row = $result->fetch_assoc();
+            $_SESSION['name'] = $email; 
+            header("Location:home_page.php");
+            exit();
+        } else {
+            echo "<p>Invalid username or password</p>";
+        }
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
